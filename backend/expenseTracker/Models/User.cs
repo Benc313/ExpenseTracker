@@ -15,7 +15,7 @@ public class User
 	[Column(TypeName = "varchar(320)")]
 	public string Email { get; set; }
 	[Required]
-	public string Password { get; set; }
+	public string PasswordHash { get; set; }
 	[Required]
 	public bool Admin { get; set; } = false;
     

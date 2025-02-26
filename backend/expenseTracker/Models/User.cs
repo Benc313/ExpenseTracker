@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using expenseTracker.Messages;
 
 namespace expenseTracker.Models;
 
@@ -21,4 +22,13 @@ public class User
     
 	public List<Transaction> Transactions { get; set; } = new();
 	public List<RecurringPayment> RecurringPayments { get; set; } = new();
+	
+	public User(){}
+
+	public User(RegisterRequest registerRequest)
+	{
+		Name = registerRequest.Name;
+		Email = registerRequest.Email;
+		PasswordHash = BCrypt.Net.BCrypt.HashPassword(registerRequest.Password);
+	}
 }

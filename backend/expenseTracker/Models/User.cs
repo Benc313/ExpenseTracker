@@ -16,6 +16,8 @@ public class User
 	public string Email { get; set; }
 	[Required]
 	public string Password { get; set; }
+	[Required]
+	public bool Admin { get; set; } = false;
     
 	public List<Transaction> Transactions { get; set; } = new();
 	public List<RecurringPayment> RecurringPayments { get; set; } = new();
